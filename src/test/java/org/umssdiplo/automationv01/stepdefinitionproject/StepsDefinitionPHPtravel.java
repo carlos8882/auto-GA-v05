@@ -70,7 +70,13 @@ public class StepsDefinitionPHPtravel {
     @And("^click ' edit button' in 'employee list' page for edit 'lastmane' value$")
     public void clickEditButtonInEmployeeListPageForEditLastmaneValue(DataTable dt) {
         List<List<String>> list = dt.raw();
-        clickCatalogo.editEmployee(list);
-        clickCatalogo.clickAddEmplBtn();
+        clickCatalogo.clickEditBtn();
+//        clickCatalogo.editEmployee(list);
+//        clickCatalogo.clickAddEmplBtn();
+    }
+
+    @And("^click 'edit button'$")
+    public void clickEditButton() {
+        clickCatalogo.clickEditBtn();
     }
 }

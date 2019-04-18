@@ -1,7 +1,9 @@
 package org.umssdiplo.automationv01.core.managepage.catalogo;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 import org.umssdiplo.automationv01.core.utils.PropertyAccessor;
@@ -55,7 +57,9 @@ public class clickCatalogo extends BasePage {
     @FindBy(css = "button[type='submit'")
     private WebElement addEmployeeBtn;
 
-    @FindBy(xpath = "//table/tbody/tr[7]/td[9]/button[2]")
+    //    @FindBy(xpath = "//table/tbody/tr[7]/td[9]/button[2]")
+    //xpath con el que selecciona el boton de editar en la tabla mediante el mail
+    @FindBy(xpath = "//td[contains(text(), 'juangerman@gmail.com')]/parent::tr//button[text()=' Edit']")
     private WebElement editEmployeeBtn;
 
     @FindBy(xpath = "//table/tbody/tr[7]/td[9]/button[1]")
@@ -133,9 +137,23 @@ public class clickCatalogo extends BasePage {
     public void editEmployee(List<List<String>> list) {
         String newLastName = list.get(0).get(0);
 
-        CommonEvents.clickButton(editEmployeeBtn);
+        editEmployeeBtn.click();
+//        CommonEvents.clickButton(editEmployeeBtn);
         addEmployeeLastName.clear();
         addEmployeeLastName.sendKeys(newLastName);
 
+    }
+
+    private WebElement buttonDeleteEditItem(int rowNumber, int deleteEdit) {
+        String cssPath = ".table > tbody:nth-child(2) > tr:nth-child(" + rowNumber + ") > td:nth-child(9) > button:nth-child(" + deleteEdit + ")";
+        WebElement deleteButton = webDriver.findElement(By.cssSelector(cssPath));
+        return deleteButton;
+    }
+
+    public void clickEditBtn() {
+        WebElement row1 = buttonDeleteEditItem(1, 2);
+        row1.click();
+
+        ManageDriver.getInstance().getWebDriver().
     }
 }
