@@ -62,6 +62,7 @@ public class EmployeeStepDef {
     public void verifyIsDisplayedInEmployeePage(String nameEmployeeExpected) throws Throwable {
         String nameEmployActual = employeeListPage.getLastNameEmployee();
         Assert.assertEquals(nameEmployActual, nameEmployeeExpected, "error message ");
+
     }
 
 }

@@ -63,4 +63,12 @@ public class StepsDefinitionPHPtravel {
     public void clickAssigmentMaterial() {
         assigment.clickSubMenuMaterial();
     }
+
+    @And("^click 'delete' assigment$")
+    public void clickDeleteButtom() {
+
+        assigment.clickDeleteButtom();
+
+    }
+
 }

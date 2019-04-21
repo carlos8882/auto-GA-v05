@@ -53,6 +53,14 @@ public class Assigment extends BasePage {
 
 
 
+    @FindBy(css="#equipments > tbody > tr:nth-child(2) > td:nth-child(7) > button")//#equipments > tbody > tr:nth-child(2) > td:nth-child(7) > button
+    private WebElement clickDelete;
+
+    public void clickDeleteButtom(){
+
+        clickDelete.click();
+    }
+
 
 
 
