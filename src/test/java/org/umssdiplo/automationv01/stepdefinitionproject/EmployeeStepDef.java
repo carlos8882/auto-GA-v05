@@ -46,21 +46,15 @@ public class EmployeeStepDef {
         employeeListPage.fillSalaryField("158");
     }
 
-    @Then("^verificar algp")
-    public void verificar(){
-//        assert.
-    }
-
-//    @And("^verify \"([^\"]*)\" is displayed in 'Employee' page$")
-//    public void verifyIsDisplayedInEmployeePage(String nameEmployeeExpected) throws Throwable {
-//        String nameEmployActual = employeeListPage.getLastNameEmployee();
-//        Assert.assertEquals(nameEmployActual, nameEmployeeExpected, "error message ");
-//    }
-
     @Then("^verify \"([^\"]*)\" is displayed in Employee page$")
-//    public void verifyIsDisplayedInEmployeePage(String nameEmployeeExpected) throws Throwable {
     public void verifyIsDisplayedInEmployeePage(String nameEmployeeExpected) throws Throwable {
         String nameEmployActual = employeeListPage.getLastNameEmployee();
+        Assert.assertEquals(nameEmployActual, nameEmployeeExpected, "error message ");
+    }
+
+    @Then("^verify \"([^\"]*)\" Edited is displayed in Employee page$")
+    public void verifyIsDisplayedInEmployeeEditPage(String nameEmployeeExpected) throws Throwable {
+        String nameEmployActual = employeeListPage.getFirstNameEmployee();
         Assert.assertEquals(nameEmployActual, nameEmployeeExpected, "error message ");
     }
 
