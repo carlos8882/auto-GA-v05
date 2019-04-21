@@ -15,6 +15,9 @@ public class registros extends BasePage {
     @FindBy(xpath = "//*[@id=\"ssiga-navbar-collapse\"]/ul/ul/li[4]/ul/li[2]/a")
     private WebElement registroClick;
 
+    @FindBy(xpath = "//*[@id=\"ssiga-navbar-collapse\"]/ul/ul/li[4]/ul/li[3]/a")
+    private WebElement registroListClick;
+
     @FindBy(name = "area")
     private WebElement areaField;
 
@@ -26,6 +29,23 @@ public class registros extends BasePage {
 
     @FindBy(xpath = "//button[text()='Submitxx']")
     private WebElement btnArea;
+
+    @FindBy(xpath = "/html/body/app-root/app-area-create/div/div/div[1]/table/tbody/tr[4]/td[4]/img[1]")
+    private WebElement btnEdit;
+
+    public void editOption() {
+        CommonEvents.clickButton(registroButonHeader);
+        CommonEvents.clickButton(registroListClick);
+        CommonEvents.clickButton(btnEdit);
+    }
+
+    public void editField(List<List<String>> list) {
+        String areaActual = list.get(0).get(0);
+        areaField.clear();
+        areaField.sendKeys(areaActual);
+        btnArea.click();
+        //        CommonEvents.clickButton(btnArea);
+    }
 
 
     public void clickButtonH(List<List<String>> list) {

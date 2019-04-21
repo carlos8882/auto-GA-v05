@@ -22,5 +22,22 @@ public class StepDefinitionRegistration {
 
         List<List<String>> list = dt.raw();
         registro.clickButtonH(list);
+//        registro.editOption();
+    }
+
+    @Given("^Select 'edit' options on 'registration list'$")
+    public void selectEditOptions() {
+        registro = LoadPage.registroPage();
+        registro.editOption();
+    }
+
+    @And("^update 'area' field$")
+    public void updateAreaField(DataTable dt) {
+        List<List<String>> list = dt.raw();
+        registro.editField(list);
+    }
+
+    @Given("^Select 'delete' options on 'registration list'$")
+    public void selectDeleteOptionsOnRegistrationList() {
     }
 }
