@@ -12,6 +12,7 @@ public class StepsDefinitionPHPtravel {
 
     private Assigment assigment;
 
+
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
         login = LoadPage.loginPage();
@@ -21,6 +22,8 @@ public class StepsDefinitionPHPtravel {
     public void setMyCredentialsOnLoginPage() throws Throwable {
         login.setCredentials();
     }
+
+    //Assigment Report
 
     @Given("^Load Assigment Report$")
     public void loadAssigmentReport() {
@@ -41,5 +44,23 @@ public class StepsDefinitionPHPtravel {
         assigment.clickSubMenuReport();
 
 
+    }
+
+    //Assigment Material
+
+    @Given("^Load Assigment Material$")
+    public void loadAssigmentMaterial() {
+        assigment=LoadPage.assigment();
+    }
+
+    @And("^click 'menu Material'$")
+    public void clickMenuMaterial() {
+
+        assigment.clickMenuMaterial();
+    }
+
+    @And("^click 'Assigment Material'$")
+    public void clickAssigmentMaterial() {
+        assigment.clickSubMenuMaterial();
     }
 }

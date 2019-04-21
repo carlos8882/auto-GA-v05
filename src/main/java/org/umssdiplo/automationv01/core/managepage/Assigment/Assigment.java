@@ -32,6 +32,30 @@ public class Assigment extends BasePage {
         submenuReport.click();
     }
 
+    //Assigment Material
+
+    @FindBy(css = "#ssiga-navbar-collapse > ul > ul > li:nth-child(5) > a")
+    private WebElement menuAssigmentMaterial;
+
+    public void clickMenuMaterial(){
+
+        menuAssigmentMaterial.click();
+    }
+
+    @FindBy(css = "#ssiga-navbar-collapse > ul > ul > li.dropdown.open > ul > li:nth-child(2) > a")
+    private WebElement subMenuMaterial;
+
+
+    public void clickSubMenuMaterial(){
+
+        subMenuMaterial.click();
+    }
+
+
+
+
+
+
 
 
 
