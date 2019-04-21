@@ -18,10 +18,20 @@ public class CommonEvents {
      * @param content    Is the content that will be set to the web element.
      */
     public static void setInputField(WebElement webElement, String content) {
-        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
+//        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
         webElement.clear();
         webElement.sendKeys(content);
     }
+
+    public static void waitEvent() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     /**
      * This method perform a click action in a web element.
@@ -29,7 +39,7 @@ public class CommonEvents {
      * @param webElement Is the web element that will be pressed.
      */
     public static void clickButton(WebElement webElement) {
-        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.elementToBeClickable(webElement));
+        //ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.elementToBeClickable(webElement));
         webElement.click();
     }
 
