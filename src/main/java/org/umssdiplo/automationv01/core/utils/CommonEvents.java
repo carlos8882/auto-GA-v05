@@ -1,10 +1,8 @@
 package org.umssdiplo.automationv01.core.utils;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 
 import java.util.List;
@@ -21,6 +19,7 @@ public class CommonEvents {
         ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
         webElement.clear();
         webElement.sendKeys(content);
+        webElement.sendKeys(Keys.TAB);
     }
 
     /**
@@ -116,4 +115,51 @@ public class CommonEvents {
         webElement.sendKeys(Keys.ENTER);
     }
 
+    public static void selectElemet(WebElement webElement, String content) {
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
+        Select drop = new Select(webElement);
+        drop.selectByVisibleText(content);
+    }
+
+
+    public static void setDatePicker(WebElement accidentDate, String accidentDateData) {
+        accidentDate.click();
+        accidentDate.sendKeys(Keys.ARROW_LEFT);
+        accidentDate.sendKeys(Keys.ARROW_LEFT);
+        accidentDate.sendKeys(Keys.ARROW_LEFT);
+        accidentDate.sendKeys(accidentDateData);
+    }
+
+    public static void setHourDate(WebElement accidentHr, String accidentHrData) {
+        accidentHr.click();
+        accidentHr.sendKeys(accidentHrData);
+    }
+
+    /*
+    * 0=delete
+    * 1=Update
+    */
+
+    public static void clickButtonList(List<WebElement> list, String name, int action) {
+        boolean isNameExist = false;
+        int i = 0;
+        while (!isNameExist) {
+            List<WebElement> cells = list.get(i).findElements(By.tagName("td"));
+            isNameExist = cells.get(0).getText().contains(name);
+            if (isNameExist)
+                cells.get(7).findElements(By.cssSelector(" button.btn.btn-danger")).get(action).click();
+            i=i+1;
+        }
+    }
+
+    public static boolean isExist(List<WebElement> list,String name) {
+        boolean isNameExist = false;
+        int i = 0;
+        while (!isNameExist) {
+            List<WebElement> cells = list.get(i).findElements(By.tagName("td"));
+            isNameExist = cells.get(0).getText().contains(name);
+            i = i + 1;
+        }
+        return isNameExist;
+    }
 }
