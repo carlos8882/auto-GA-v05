@@ -23,4 +23,5 @@ public abstract class BasePage {
         webDriverWait = ManageDriver.getInstance().getWebDriverWait();
         PageFactory.initElements(webDriver, this);
     }
+
 }

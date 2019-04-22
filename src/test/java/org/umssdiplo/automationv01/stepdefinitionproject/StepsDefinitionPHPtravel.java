@@ -71,4 +71,51 @@ public class StepsDefinitionPHPtravel {
 
     }
 
+    @And("^click 'employee'$")
+    public void clickEmployee() {
+
+        assigment.clickMenEmployee();
+    }
+
+
+    @And("^fill 'employee'$")
+    public void fillEmployee() throws Throwable {
+        fillData();
+
+    }
+
+    public void fillData(){
+        assigment.fillEmployee( "Carlos Cori");
+
+    }
+
+    @And("^click 'Material Assign'$")
+    public void clickMaterialAssign() {
+        assigment.clickMenAssigEmp();
+    }
+
+    @And("^fill 'material'$")
+    public void fillMaterial()throws Throwable{
+        fillDataMat();
+    }
+
+    public void fillDataMat(){
+        assigment.fillMaterial("arnez");
+    }
+
+
+    @And("^click 'Quantity' Assign$")
+    public void clickQuantityAssign() {
+        assigment.clickCantidad();
+    }
+
+    @And("^fill 'cantidad'$")
+    public void fillCantidad() {
+        assigment.fillCantidad("Uno");
+    }
+
+    @And("^click 'selected Item'$")
+    public void clickSelectedItem() {
+
+    }
 }

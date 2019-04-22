@@ -135,4 +135,11 @@ public class EmployeeListPage extends BasePage {
         return name;
     }
 
+    public String getFirstNameEmployee(){
+        WebElement lastElement = employeeRows.get(0);
+        List<WebElement> deleteButton = lastElement.findElements(By.cssSelector("td"));
+        String name = deleteButton.get(1).getText();
+        return name;
+    }
+
 }
