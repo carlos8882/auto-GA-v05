@@ -68,13 +68,12 @@ public class EmployeeListPage extends BasePage {
         return deleteButton;
     }
 
-//    public void clickOkButton(){
-//
-//    }
-
     public void clickDeleteEditButton(int rowNumber, int deleteEdit){
         WebElement fila1 = buttonDeleteEditItem(rowNumber,deleteEdit);
         fila1.click();
+        waitImplicitTime();
+        waitImplicitTime();
+        alertOk();
     }
 
     public void fillFirstName(String data){
@@ -140,6 +139,10 @@ public class EmployeeListPage extends BasePage {
         List<WebElement> deleteButton = lastElement.findElements(By.cssSelector("td"));
         String name = deleteButton.get(1).getText();
         return name;
+    }
+
+    public void clickRefresh(){
+        refreshButton.click();
     }
 
 }

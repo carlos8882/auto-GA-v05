@@ -16,7 +16,11 @@ public class EmployeeStepDef {
     @And("^press delete on 'Employee' page$")
     public void deleteEmployee() throws Throwable {
         employeeListPage.clickDeleteEditButton(1,1);
-//        employeeListPage.clickAddEmployee();
+    }
+
+    @And("^press refresh on 'Employee' page$")
+    public void refreshEmployee() throws Throwable {
+        employeeListPage.clickRefresh();
     }
 
     @And("^add 'Employee' data$")

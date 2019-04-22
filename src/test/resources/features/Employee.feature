@@ -25,3 +25,4 @@ Feature: SSI
     And select EmployeeList on 'SSI' page
     And 'employee List' page is loaded
     And press delete on 'Employee' page
+    And press refresh on 'Employee' page
