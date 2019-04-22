@@ -19,7 +19,11 @@ public class Login extends BasePage {
     public void setCredentials() {
         String username = PropertyAccessor.getInstance().getUser();
         String password = PropertyAccessor.getInstance().getPassword();
+        usernameInputField.clear();
+        usernameInputField.sendKeys(username);
         CommonEvents.setInputField(usernameInputField, username);
+        passwordInputField.clear();
+        passwordInputField.sendKeys(password);
         CommonEvents.setInputField(passwordInputField, password);
         CommonEvents.clickButton(loginBtn);
     }
