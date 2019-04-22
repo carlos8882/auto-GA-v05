@@ -18,6 +18,9 @@ public class registros extends BasePage {
     @FindBy(xpath = "//*[@id=\"ssiga-navbar-collapse\"]/ul/ul/li[4]/ul/li[3]/a")
     private WebElement registroListClick;
 
+    @FindBy(xpath = "//*[@id=\"ssiga-navbar-collapse\"]/ul/ul/li[4]/ul/li[4]/a")
+    private WebElement personalAreaListClick;
+
     @FindBy(name = "area")
     private WebElement areaField;
 
@@ -32,6 +35,13 @@ public class registros extends BasePage {
 
     @FindBy(xpath = "/html/body/app-root/app-area-create/div/div/div[1]/table/tbody/tr[4]/td[4]/img[1]")
     private WebElement btnEdit;
+
+
+    @FindBy(xpath = "/html/body/app-root/app-area-create/div/div/div[1]/table/tbody/tr[4]/td[4]/img[2]")
+    private WebElement btnDel;
+
+    @FindBy(xpath = "//*[@name='employeeTypeId']/option[@value='1']")
+    private WebElement employeeIdField;
 
     public void editOption() {
         CommonEvents.clickButton(registroButonHeader);
@@ -63,5 +73,19 @@ public class registros extends BasePage {
 
         CommonEvents.clickButton(btnArea);
 
+    }
+
+    public void delOption() {
+        CommonEvents.clickButton(btnDel);
+    }
+
+    public void personalAreaPage() {
+        CommonEvents.clickButton(registroButonHeader);
+        CommonEvents.clickButton(personalAreaListClick);
+
+    }
+
+    public void completeEmployee() {
+        employeeIdField.click();
     }
 }

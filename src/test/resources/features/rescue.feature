@@ -12,3 +12,7 @@ Feature: registros
 
   Scenario: eliminar area en Registros
     Given Select 'delete' options on 'registration list'
+
+  Scenario: crear el registro de personal por area
+    Given Load 'create personal registration' page
+    And complete 'form' on 'create personal' page from employee "carmen"

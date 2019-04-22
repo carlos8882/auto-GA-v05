@@ -22,7 +22,7 @@ public class StepDefinitionRegistration {
 
         List<List<String>> list = dt.raw();
         registro.clickButtonH(list);
-//        registro.editOption();
+
     }
 
     @Given("^Select 'edit' options on 'registration list'$")
@@ -39,5 +39,18 @@ public class StepDefinitionRegistration {
 
     @Given("^Select 'delete' options on 'registration list'$")
     public void selectDeleteOptionsOnRegistrationList() {
+        registro.delOption();
+    }
+
+    @Given("^Load 'create personal registration' page$")
+    public void loadCreatePersonalRegistrationPage() {
+        registro = LoadPage.registroPage();
+        registro.personalAreaPage();
+    }
+
+    @And("^complete 'form' on 'create personal' page from employee \"([^\"]*)\"$")
+    public void completeFormOnCreatePersonalPageFromEmployee(String employee) throws Throwable {
+        registro.completeEmployee();
+
     }
 }
