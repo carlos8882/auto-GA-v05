@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 import org.umssdiplo.automationv01.core.utils.PropertyAccessor;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Class represent the base page
  *
@@ -30,7 +32,11 @@ public abstract class BasePage {
     }
 
     public void waitImplicitTime(){
-        PropertyAccessor.getInstance().getImplicitTimeWait();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
