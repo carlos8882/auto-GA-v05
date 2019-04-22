@@ -72,7 +72,6 @@ public class EmployeeListPage extends BasePage {
         WebElement fila1 = buttonDeleteEditItem(rowNumber,deleteEdit);
         fila1.click();
         waitImplicitTime();
-        waitImplicitTime();
         alertOk();
     }
 

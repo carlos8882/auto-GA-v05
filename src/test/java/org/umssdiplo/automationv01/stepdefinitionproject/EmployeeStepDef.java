@@ -62,4 +62,10 @@ public class EmployeeStepDef {
         Assert.assertEquals(nameEmployActual, nameEmployeeExpected, "error message ");
     }
 
+    @Then("^verify \"([^\"]*)\" was Deleted in Employee page$")
+    public void verifyDeleteEmployee(String nameEmployeeExpected) throws Throwable {
+        String nameEmployActual = employeeListPage.getFirstNameEmployee();
+        Assert.assertNotEquals(nameEmployActual, nameEmployeeExpected, "error message ");
+    }
+
 }

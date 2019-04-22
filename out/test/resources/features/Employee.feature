@@ -26,3 +26,4 @@ Feature: SSI
     And 'employee List' page is loaded
     And press delete on 'Employee' page
     And press refresh on 'Employee' page
+    Then verify "carmen" was Deleted in Employee page
