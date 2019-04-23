@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Class represent the base page
  *
@@ -25,5 +27,17 @@ public abstract class BasePage {
         webDriverWait = ManageDriver.getInstance().getWebDriverWait();
         action = new Actions(webDriver);
         PageFactory.initElements(webDriver, this);
+    }
+
+    public void alertOk(){
+        webDriver.switchTo().alert().accept();
+    }
+
+    public void waitImplicitTime(){
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
