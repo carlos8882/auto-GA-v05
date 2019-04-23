@@ -14,11 +14,12 @@ public class StepsDefinitionPuma {
         puma = LoadPage.loginPagePuma();
     }
 
-//    @And("^set my credentials on 'Login' page$")
-//    public void setMyCredentialsOnLoginPage() throws Throwable {
-//        puma.setCredentials();
-//    }
+    @And("^Click tenis > Futbol$")
+    public void pumaclickFutbol() throws Throwable {
+        puma.menHolder();
+        puma.tenisClick();
+    }
 
-//    @And("^'Puma' page is loaded$")
-//    public void
+
+
 }

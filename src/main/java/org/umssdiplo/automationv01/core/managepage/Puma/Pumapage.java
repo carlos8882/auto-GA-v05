@@ -19,17 +19,19 @@ public class Pumapage extends BasePage {
 
 
     public void menHolder(){
-        action.moveToElement(hombewMenu);
+        action.moveToElement(hombewMenu).perform();
     }
 
     public void tenisClick(){
         futbolOption.click();
     }
 
-//    private WebElement tenisClick(String elemet){
-//        String selector = "img[title='" + elemet +"'";
-//
-//    }
+    private WebElement tenisElement(String elemet){
+        String selector = "img[title='" + elemet +"'";
+        WebElement tenisImage = webDriver.findElement(By.cssSelector(selector));
+//        WebElement tenisPadre = webDriver.findElement(By.xpath(tenisImage.findElement()))
+        return tenisImage;
+    }
 
 
 }
