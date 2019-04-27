@@ -7,7 +7,7 @@ import org.umssdiplo.automationv01.core.managepage.Login.Login;
 public final class LoadPage {
     public static Login loginPage() {
         ManageDriver.getInstance().getWebDriver()
-                .navigate().to(PropertyAccessor.getInstance().getBaseUrl());
+                .navigate().to(PropertyAccessor.getInstance().getBaseUrlTravel());
         return new Login();
     }
 

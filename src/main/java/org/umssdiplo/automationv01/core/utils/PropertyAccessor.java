@@ -8,6 +8,7 @@ import java.util.Properties;
 public class PropertyAccessor {
     private static final String BROWSER = "browser";
     private static final String BASE_URL = "baseurl";
+    private static final String BASE_URLTRAVEL = "baseurlTravel";
     private static final String USER = "username";
     private static final String PASSWORD = "password";
 
@@ -57,6 +58,9 @@ public class PropertyAccessor {
         return getDataProperty(BASE_URL);
     }
 
+    public String getBaseUrlTravel() {
+        return getDataProperty(BASE_URLTRAVEL);
+    }
     public String getUser() {
         return getDataProperty(USER);
     }
