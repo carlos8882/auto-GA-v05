@@ -3,6 +3,8 @@ package org.umssdiplo.automationv01.stepdefinitionproject;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import org.testng.Assert;
 import org.umssdiplo.automationv01.core.managepage.catalogo.registros;
 import org.umssdiplo.automationv01.core.utils.LoadPage;
 
@@ -52,5 +54,25 @@ public class StepDefinitionRegistration {
     public void completeFormOnCreatePersonalPageFromEmployee(String employee) throws Throwable {
         registro.completeEmployee();
 
+    }
+
+    @Then("^the new 'area' on 'registration list' should be \"([^\"]*)\"$")
+    public void theNewAreaOnRegistrationListShouldBe(String esperado) throws Throwable {
+        String actual = registro.getCodigoTabla();
+
+        Assert.assertEquals(actual, esperado, "El codigo es diferente al esperado ");
+    }
+
+    @Then("^'area' field sould be \"([^\"]*)\"$")
+    public void areaFieldSouldBe(String esperadoUpdate) throws Throwable {
+        String actual = registro.getCodigoTablaUpdate();
+
+        Assert.assertEquals(actual, esperadoUpdate, "El registro no se ha actualizado");
+    }
+
+    @Then("^code \"([^\"]*)\" must be eliminated from 'resgistration list'$")
+    public void codeMustBeEliminatedFromResgistrationList(String arg0) throws Throwable {
+        String actual = registro.getCodigoTabla();
+        Assert.assertTrue(actual.isEmpty(), "El registro no se ha eliminado");
     }
 }

@@ -37,11 +37,17 @@ public class registros extends BasePage {
     private WebElement btnEdit;
 
 
-    @FindBy(xpath = "/html/body/app-root/app-area-create/div/div/div[1]/table/tbody/tr[4]/td[4]/img[2]")
+    @FindBy(xpath = "//td[contains(text(),'003')]/parent::tr//img[@src='../../assets/images/delete.png']")
     private WebElement btnDel;
 
     @FindBy(xpath = "//*[@name='employeeTypeId']/option[@value='1']")
     private WebElement employeeIdField;
+
+    @FindBy(xpath = "//table[@class='table table-striped']/tbody/tr/td[contains(text(),'alm01')]")
+    private WebElement codigoTabla;
+
+    @FindBy(xpath = "//table[@class='table table-striped']/tbody/tr/td[contains(text(),'almacen principal')]")
+    private WebElement codigoTablaUpdate;
 
     public void editOption() {
         CommonEvents.clickButton(registroButonHeader);
@@ -87,5 +93,15 @@ public class registros extends BasePage {
 
     public void completeEmployee() {
         employeeIdField.click();
+    }
+
+    public String getCodigoTabla() {
+        String actual = codigoTabla.getText();
+        return actual;
+    }
+
+    public String getCodigoTablaUpdate() {
+        String actual = codigoTablaUpdate.getText();
+        return actual;
     }
 }
