@@ -41,6 +41,7 @@ public class StepDefinitionRegistration {
 
     @Given("^Select 'delete' options on 'registration list'$")
     public void selectDeleteOptionsOnRegistrationList() {
+        registro = LoadPage.registroPage();
         registro.delOption();
     }
 
@@ -50,9 +51,10 @@ public class StepDefinitionRegistration {
         registro.personalAreaPage();
     }
 
-    @And("^complete 'form' on 'create personal' page from employee \"([^\"]*)\"$")
-    public void completeFormOnCreatePersonalPageFromEmployee(String employee) throws Throwable {
-        registro.completeEmployee();
+    @And("^complete 'form' on 'create personal' page from employee$")
+    public void completeFormOnCreatePersonalPageFromEmployee(DataTable dt) throws Throwable {
+        List<List<String>> list = dt.raw();
+        registro.completeEmployee(list);
 
     }
 
@@ -74,5 +76,11 @@ public class StepDefinitionRegistration {
     public void codeMustBeEliminatedFromResgistrationList(String arg0) throws Throwable {
         String actual = registro.getCodigoTabla();
         Assert.assertTrue(actual.isEmpty(), "El registro no se ha eliminado");
+    }
+
+    @Then("^'name' field should be \"([^\"]*)\"$")
+    public void nameFieldShouldBe(String esperado) throws Throwable {
+        String actual = registro.getCodigoTablaArea();
+        Assert.assertEquals(esperado, actual, "El nombre no coincide con el esperado");
     }
 }

@@ -10,7 +10,7 @@ Feature: registros
     Given Select 'edit' options on 'registration list'
     And update 'area' field
       | almacen principal |
-    Then 'area' field sould be "almacen principal"
+    Then 'area' field should be "almacen principal"
 
   Scenario: eliminar area en Registros
     Given Select 'delete' options on 'registration list'
@@ -18,4 +18,6 @@ Feature: registros
 
   Scenario: crear el registro de personal por area
     Given Load 'create personal registration' page
-    And complete 'form' on 'create personal' page from employee "carmen"
+    And complete 'form' on 'create personal' page from employee
+      | carmen | area 3 | obrero | este es un obrero de prueba | 21/02/2019 |
+    Then 'name' field should be "carmen"

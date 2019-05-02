@@ -40,14 +40,32 @@ public class registros extends BasePage {
     @FindBy(xpath = "//td[contains(text(),'003')]/parent::tr//img[@src='../../assets/images/delete.png']")
     private WebElement btnDel;
 
-    @FindBy(xpath = "//*[@name='employeeTypeId']/option[@value='1']")
+    @FindBy(xpath = "//*[@name='employeeTypeId']")
     private WebElement employeeIdField;
+
+    @FindBy(xpath = "//select[@id='sel1']")
+    private WebElement areaFieldEmp;
+
+    @FindBy(xpath = "//select[@id='capacidad']")
+    private WebElement cargoFieldEmp;
+
+    @FindBy(xpath = "//textarea[@id='observation']")
+    private WebElement obsFieldEmp;
+
+    @FindBy(xpath = "//input[@id='dateRegister']")
+    private WebElement dateFieldEmp;
+
+    @FindBy(xpath = "//button[contains(text(),'Submit')]")
+    private WebElement emplAreaBtn;
 
     @FindBy(xpath = "//table[@class='table table-striped']/tbody/tr/td[contains(text(),'alm01')]")
     private WebElement codigoTabla;
 
     @FindBy(xpath = "//table[@class='table table-striped']/tbody/tr/td[contains(text(),'almacen principal')]")
     private WebElement codigoTablaUpdate;
+
+    @FindBy(xpath = "//td[contains(text(),'Carmen')]")
+    private WebElement nameTabla;
 
     public void editOption() {
         CommonEvents.clickButton(registroButonHeader);
@@ -82,6 +100,8 @@ public class registros extends BasePage {
     }
 
     public void delOption() {
+        CommonEvents.clickButton(registroButonHeader);
+        CommonEvents.clickButton(registroListClick);
         CommonEvents.clickButton(btnDel);
     }
 
@@ -91,8 +111,20 @@ public class registros extends BasePage {
 
     }
 
-    public void completeEmployee() {
-        employeeIdField.click();
+    public void completeEmployee(List<List<String>> list) {
+        String empleado = list.get(0).get(0);
+        String area = list.get(0).get(1);
+        String cargo = list.get(0).get(2);
+        String observacion = list.get(0).get(3);
+        String fecha = list.get(0).get(4);
+
+        employeeIdField.sendKeys(empleado);
+        areaFieldEmp.sendKeys(area);
+        cargoFieldEmp.sendKeys(cargo);
+        obsFieldEmp.sendKeys(observacion);
+        dateFieldEmp.sendKeys(fecha);
+
+        CommonEvents.clickButton(emplAreaBtn);
     }
 
     public String getCodigoTabla() {
@@ -102,6 +134,11 @@ public class registros extends BasePage {
 
     public String getCodigoTablaUpdate() {
         String actual = codigoTablaUpdate.getText();
+        return actual;
+    }
+
+    public String getCodigoTablaArea() {
+        String actual = nameTabla.getText();
         return actual;
     }
 }
