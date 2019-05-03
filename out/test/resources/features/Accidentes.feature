@@ -16,8 +16,6 @@ Feature: Acidents Functionality
     When click Update "carmen guzman 7676764" is Update in the "Carlos Cori"
     Then The "carmen guzman" Resgister is show in the table
 
-
-    #  Resoonsable: Carlos Camacho  
   Scenario: The User can Create an Incident Type
     Given Go to Incident of the main menu
     And Click Incident Button
@@ -25,7 +23,6 @@ Feature: Acidents Functionality
     And Fill Incident Type with Type: "Medio Baja" and Description: "Medio Baja"
     Then Verify Incident Type: "Medio Baja"
 
-    #  Resoonsable: Carlos Camacho
   Scenario: The User can Create an IncidentType
     Given Go to Incident of the main menu
     And Click Incident Button

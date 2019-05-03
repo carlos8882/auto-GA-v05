@@ -30,6 +30,7 @@ public class AccidentsCreateSeptDef {
     @Given("^Go to Incident of the main menu$")
     public void loadPageAndGotoAccidentMenu()  {
         loginPage=LoadPage.loginPage();
+        registerIncident= RegisterIncidentPage.openRegisterPopup();
             }
 
     @And("^Click Incident Button$")
@@ -37,6 +38,39 @@ public class AccidentsCreateSeptDef {
         menu= MenuPage.gotoMenu();
         menu.createIncident();
     }
+
+    @And("^Click add Incident Type Button$")
+    public void clickAddIncidentTypeButton()  {
+        registerIncident.clickAddIncidentType();
+    }
+
+    @And("^Click Incident Agent Button$")
+    public void clickAddIncidentAgentButton()  {
+        registerIncident.clickAddIncidentAgent();
+    }
+
+    @And("^Fill Incident Type with Type: \"([^\"]*)\" and Description: \"([^\"]*)\"$")
+    public void fillIncidentTypeButton(String typeName, String typeDescription)  {
+        registerIncident.fillIncidentType(typeName,typeDescription);
+    }
+
+    @And("^Fill Incident Agent with \"([^\"]*)\"$")
+    public void IncidentAgen(String agentType)  {
+        registerIncident.fillIncidentAgent(agentType);
+    }
+
+    @Then("^Verify Incident Type: \"([^\"]*)\"$")
+    public void verifyIncidentType(String incidentType)  {
+        String actual = registerIncident.getLastIncidentType();
+        Assert.assertEquals(actual.trim(),incidentType);
+    }
+
+    @Then("^Verify Incident Agent: \"([^\"]*)\"$")
+    public void verifyIncidentAgen(String agentType)  {
+        String actual = registerIncident.getLastIncidentAgent();
+        Assert.assertEquals(actual.trim(),agentType);
+    }
+
     @When("^Fill the incident register with \"([^\"]*)\" data$")
     public void fillTheIncidentRegisterWithData(String  data) throws Throwable {
         employeeData = new Employee();

@@ -72,7 +72,9 @@ public class EmployeeListPage extends BasePage {
         WebElement fila1 = buttonDeleteEditItem(rowNumber,deleteEdit);
         fila1.click();
         waitImplicitTime();
-        alertOk();
+        if (deleteEdit == 1) {
+            alertOk();
+        }
     }
 
     public void fillFirstName(String data){
@@ -124,6 +126,7 @@ public class EmployeeListPage extends BasePage {
 
     public void clickCreateButton(){
         createButton.click();
+        waitImplicitTime();
     }
 
     public String getLastNameEmployee(){
@@ -134,9 +137,10 @@ public class EmployeeListPage extends BasePage {
     }
 
     public String getFirstNameEmployee(){
+        waitImplicitTime();
         WebElement lastElement = employeeRows.get(0);
-        List<WebElement> deleteButton = lastElement.findElements(By.cssSelector("td"));
-        String name = deleteButton.get(1).getText();
+        List<WebElement> firstElement = lastElement.findElements(By.cssSelector("td"));
+        String name = firstElement.get(1).getText();
         return name;
     }
 

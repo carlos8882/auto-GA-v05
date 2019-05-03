@@ -16,6 +16,7 @@ public class Menu extends BasePage {
     public void createIncident() {
         CommonEvents.clickButton(accidents);
         CommonEvents.clickButton(incident);
+        waitImplicitTime();
     }
 
 
