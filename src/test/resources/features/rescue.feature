@@ -27,6 +27,10 @@ Feature: registros
     Given GET "/area" postman endpoint is configured
     Then the status code should be 200
 
-  Scenario: POSTMAN- Pot using java-cucumber-restassure
+  Scenario: POSTMAN- POST using java-cucumber-restassure
     Given POST "/area" postman endpoint is configured whit values
     And the status code post should be 200
+
+  Scenario: POSTMAN- DELETE using java-cucumber-restassure
+    Given DELETE "/area/5" postman endpoint is configured
+#    Then the status code should be 200 after delete

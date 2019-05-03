@@ -109,4 +109,15 @@ public class StepDefinitionRegistration {
     public void theStatusCodePostShouldBe(int statusCode1) {
         assertEquals(response.getStatusCode(), statusCode1);
     }
+
+    @Given("^DELETE \"([^\"]*)\" postman endpoint is configured$")
+    public void deletePostmanEndpointIsConfigured(String deleteEndpoint) throws Throwable {
+        response = HandleRequest.delete(deleteEndpoint);
+    }
+
+    @Then("^the status code should be (\\d+) after delete$")
+    public void theStatusCodeShouldBeAfterDelete(int statusCodeDel) {
+        assertEquals(response.getStatusCode(), statusCodeDel);
+
+    }
 }
