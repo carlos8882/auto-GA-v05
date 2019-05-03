@@ -21,3 +21,12 @@ Feature: registros
     And complete 'form' on 'create personal' page from employee
       | carmen | area 3 | obrero | este es un obrero de prueba | 21/02/2019 |
     Then 'name' field should be "carmen"
+
+
+  Scenario: POSTMAN- GET using java-cucumber-restassure
+    Given GET "/area" postman endpoint is configured
+    Then the status code should be 200
+
+  Scenario: POSTMAN- Pot using java-cucumber-restassure
+    Given POST "/area" postman endpoint is configured whit values
+    And the status code post should be 200

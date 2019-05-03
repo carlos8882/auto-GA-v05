@@ -4,14 +4,19 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import io.restassured.response.Response;
 import org.testng.Assert;
+import org.umssdiplo.automationv01.core.customrestassure.HandleRequest;
 import org.umssdiplo.automationv01.core.managepage.catalogo.registros;
 import org.umssdiplo.automationv01.core.utils.LoadPage;
 
 import java.util.List;
 
+import static org.testng.Assert.assertEquals;
+
 public class StepDefinitionRegistration {
     private registros registro;
+    private Response response;
 
     @Given("^Load 'new area registration' load$")
     public void loadNewAreaRegistrationLoad() {
@@ -82,5 +87,26 @@ public class StepDefinitionRegistration {
     public void nameFieldShouldBe(String esperado) throws Throwable {
         String actual = registro.getCodigoTablaArea();
         Assert.assertEquals(esperado, actual, "El nombre no coincide con el esperado");
+    }
+
+    @Given("^GET \"([^\"]*)\" postman endpoint is configured$")
+    public void getPostmanEndpointIsConfigured(String headerEndpoint) throws Throwable {
+        response = HandleRequest.get(headerEndpoint);
+    }
+
+    @Then("^the status code should be (\\d+)$")
+    public void theStatusCodeShouldBe(int statusCode) {
+        assertEquals(response.getStatusCode(), statusCode);
+    }
+
+    @Given("^POST \"([^\"]*)\" postman endpoint is configured whit values$")
+    public void postPostmanEndpointIsConfiguredWhitValue(String bodyEndpoint) throws Throwable {
+        String body = "{\"codigo\": \"abc1\",\"deleted\": false,\"description\": \"es una prueba\",\"id\": 11,\"name\": \"abcdario\"}";
+        response = HandleRequest.post(bodyEndpoint, body);
+    }
+
+    @And("^the status code post should be (\\d+)$")
+    public void theStatusCodePostShouldBe(int statusCode1) {
+        assertEquals(response.getStatusCode(), statusCode1);
     }
 }
