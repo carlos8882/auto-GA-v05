@@ -16,7 +16,11 @@ public class EmployeeStepDef {
     @And("^press delete on 'Employee' page$")
     public void deleteEmployee() throws Throwable {
         employeeListPage.clickDeleteEditButton(1,1);
-//        employeeListPage.clickAddEmployee();
+    }
+
+    @And("^press refresh on 'Employee' page$")
+    public void refreshEmployee() throws Throwable {
+        employeeListPage.clickRefresh();
     }
 
     @And("^add 'Employee' data$")
@@ -56,6 +60,12 @@ public class EmployeeStepDef {
     public void verifyIsDisplayedInEmployeeEditPage(String nameEmployeeExpected) throws Throwable {
         String nameEmployActual = employeeListPage.getFirstNameEmployee();
         Assert.assertEquals(nameEmployActual, nameEmployeeExpected, "error message ");
+    }
+
+    @Then("^verify \"([^\"]*)\" was Deleted in Employee page$")
+    public void verifyDeleteEmployee(String nameEmployeeExpected) throws Throwable {
+        String nameEmployActual = employeeListPage.getFirstNameEmployee();
+        Assert.assertNotEquals(nameEmployActual, nameEmployeeExpected, "error message ");
     }
 
 }
