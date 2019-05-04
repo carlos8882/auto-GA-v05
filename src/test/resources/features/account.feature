@@ -85,4 +85,4 @@ Feature: Admins management crud of users and behavior of page
 #
 #Examples:
 #    | column     |
-#    |  FirstName |
+#    |  FirstName |g
