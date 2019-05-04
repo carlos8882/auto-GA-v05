@@ -3,8 +3,8 @@ Feature: Admins management crud of users and behavior of page
 
   Scenario: Admins user added
     Given set my credentials on 'Login' page
-    #And go to admins page
-    When go to admins page
+    And go to admins page
+#    When go to admins page
     And click add Button
     Then fill form to create admin user
     #Then fill form to create admin user "1"
@@ -29,9 +29,9 @@ Feature: Admins management crud of users and behavior of page
     Then Delete user created
 
   Scenario: Admin user searched by First Name
-    Given set my credentials on 'Login' page
-    When go to admins page
-#    Given go to admins page
+#    Given set my credentials on 'Login' page
+#    When go to admins page
+    Given go to admins page
     And Click on Search button
 #    And Click on DropDwnFirst
     And Click on DropDwn "F"
@@ -40,9 +40,9 @@ Feature: Admins management crud of users and behavior of page
     Then Verify that search by First Name was success
 
   Scenario: Admin user searched by Last Name
-    Given set my credentials on 'Login' page
-    When go to admins page
-#    Given go to admins page
+#    Given set my credentials on 'Login' page
+#    When go to admins page
+    Given go to admins page
     And Click on Search button
     And Click on DropDwn "L"
     And Enter a name for the last name search
@@ -70,9 +70,9 @@ Feature: Admins management crud of users and behavior of page
     Then Verify that search by Active was success
 
   Scenario: Admin users ordered by First Name
-    Given set my credentials on 'Login' page
-    When go to admins page
-#    Given go to admins page
+#    Given set my credentials on 'Login' page
+#    When go to admins page
+    Given go to admins page
     When Click on header First Name column
     Then Verify grid was sorted descentantly
 
@@ -85,4 +85,4 @@ Feature: Admins management crud of users and behavior of page
 #
 #Examples:
 #    | column     |
-#    |  FirstName |
+#    |  FirstName |g

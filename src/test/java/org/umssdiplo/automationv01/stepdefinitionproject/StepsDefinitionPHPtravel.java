@@ -63,7 +63,7 @@ public class StepsDefinitionPHPtravel {
     public void fillFormToCreateAdminUser() {
         setFields();
         String nameEmployActual = account.getFirstNameEmployee();
-        Assert.assertEquals(nameEmployActual, "test", "admin user not created ");
+        Assert.assertEquals(nameEmployActual, "testName", "admin user not created ");
         account.deleteclck();
     }
 
@@ -211,7 +211,7 @@ public class StepsDefinitionPHPtravel {
         String valuefirstrow = account.getFirstNameEmployee();
         String valuesecondrow = account.getFirstNameEmployee2();
         boolean greater = (valuefirstrow.compareTo(valuesecondrow)>0);
-        Assert.assertTrue(greater, "grid not sorted ");
+        Assert.assertTrue(greater, "grid not sorted descendantly");
 
     }
 }

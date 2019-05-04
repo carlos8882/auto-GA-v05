@@ -3,8 +3,8 @@ Feature: Admins management crud of users and behavior of page
 
   Scenario: Admins user added
     Given set my credentials on 'Login' page
-    #And go to admins page
-    When go to admins page
+    And go to admins page
+#    When go to admins page
     And click add Button
     Then fill form to create admin user
     #Then fill form to create admin user "1"
