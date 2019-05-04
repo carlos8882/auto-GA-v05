@@ -120,4 +120,15 @@ public class StepDefinitionRegistration {
         assertEquals(response.getStatusCode(), statusCodeDel);
 
     }
+
+    @Given("^GET \"([^\"]*)\" postman endpoint whit value\"([^\"]*)\"$")
+    public void getPostmanEndpointWhitValue(String endpoint, String value) throws Throwable {
+        String headerEndpoint = endpoint + value;
+        response = HandleRequest.get(headerEndpoint);
+    }
+
+    @Then("^the status code should be (\\d+) for value$")
+    public void theStatusCodeShouldBeForValue(int statusCode3) {
+        assertEquals(response.getStatusCode(), statusCode3);
+    }
 }
