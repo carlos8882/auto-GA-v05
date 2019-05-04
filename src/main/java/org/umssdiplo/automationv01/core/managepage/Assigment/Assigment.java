@@ -1,5 +1,6 @@
 package org.umssdiplo.automationv01.core.managepage.Assigment;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -97,7 +98,7 @@ public class Assigment extends BasePage {
 
     public void fillMaterial(String Data){
 
-        menMaterial.sendKeys(Data);
+        menMaterial.sendKeys(Data,Keys.ENTER);
 
 
     }
@@ -138,4 +139,99 @@ public class Assigment extends BasePage {
         submitMat.click();
 
     }
+
+
+    @FindBy(xpath = "//*[@id=\"mat-select-1\"]/div/div[1]/span/span")
+    private WebElement verifyMaterial;
+
+    public String verifyMaterialElement(){
+
+        String verifyMaterialFinal=verifyMaterial.getText();
+
+        return verifyMaterialFinal;
+
+
+    }
+//Material Store
+    @FindBy(css = "#ssiga-navbar-collapse > ul > ul > li:nth-child(6) > a")
+    private WebElement materialStoreMenu;
+    @FindBy(xpath = "//*[@id=\"ssiga-navbar-collapse\"]/ul/ul/li[6]/ul/li[2]/a")
+    private WebElement subMenMatList;
+
+
+
+    public void clickMaterialStrore(){
+        materialStoreMenu.click();
+        subMenMatList.click();
+    }
+
+    @FindBy(xpath = "//*[@id=\"equipments\"]/tbody/tr[1]/td[1]")
+    private WebElement verifyListMatStore;
+    public String  verifyElementMatStore(){
+
+        String verifyElementFinal=verifyListMatStore.getText();
+
+        return verifyElementFinal;
+    }
+
+    //delete element
+    @FindBy(xpath = "//*[@id=\"equipments\"]/tbody/tr[1]/td[6]/button[2]")
+    private WebElement deleteElement;
+
+    public void clickDeleteElement(){
+        deleteElement.click();
+    }
+
+    @FindBy(xpath = "//*[@id=\"updateMat\"]")
+    private WebElement editElement;
+
+    public void editElementMaterial(){
+        editElement.click();
+        materialElement.click();
+        buttonMaterial.click();
+    }
+
+    //find material
+    @FindBy(name = "name")
+    private WebElement materialElement;
+
+    //Fill Material
+
+    public void fillMaterialElement(String Data){
+
+        materialElement.sendKeys(Data);
+    }
+    @FindBy(xpath = "/html/body/app-root/app-material-create/div/div/div[1]/form/div[1]/div/input")
+    private WebElement buttonMaterial;
+
+    @FindBy(xpath = "//*[@id=\"ssiga-navbar-collapse\"]/ul/ul/li[6]/a")
+    private WebElement menMaterialStore;
+
+    @FindBy(xpath = "//*[@id=\"submenu-mat-type-list\"]")
+    private WebElement materialTypeList;
+
+    @FindBy(xpath = "//*[@id=\"material-type-list\"]/button")
+    private WebElement addMaterialType;
+    @FindBy(name = "nameType")
+    private WebElement newMaterialType;
+    @FindBy(xpath = "/html/body/modal-container/div/div/app-material-type-add/div/div[2]/form/div[2]/div/button[1]")
+    private WebElement buttonAddNewMT;
+
+    public void materialType(){
+        menMaterialStore.click();
+        materialTypeList.click();
+
+
+    }
+
+    public void fillNewMaterialType(String Data){
+
+        newMaterialType.sendKeys(Data);
+        buttonAddNewMT.click();
+    }
+
+    public void newMaterial(){
+        addMaterialType.click();
+    }
+
 }

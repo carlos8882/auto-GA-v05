@@ -14,5 +14,5 @@ Feature: Once a SSI-GA load must select the Material Assigment Menu and assign m
     And fill 'material'
     And click 'selected Item'
     And  subimit 'Material'
-    Then verify "botas" is assigment to employee
+   Then verify "casco" is assigment to employee
 

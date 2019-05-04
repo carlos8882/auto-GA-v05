@@ -27,9 +27,5 @@ public class StepsDefinitionSSIWorkItemClasification {
 
     }
 
-    @Then("^verify \"([^\"]*)\" is assigment to employee$")
-    public void verifyIsAssigmentToEmployee(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
+
 }
