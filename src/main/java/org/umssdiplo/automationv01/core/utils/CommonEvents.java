@@ -140,14 +140,27 @@ public class CommonEvents {
     * 1=Update
     */
 
-    public static void clickButtonList(List<WebElement> list, String name, int action) {
+    public static void clickButtonDeleted(List<WebElement> list, String name) {
         boolean isNameExist = false;
         int i = 0;
         while (!isNameExist) {
-            List<WebElement> cells = list.get(i).findElements(By.tagName("td"));
+            List<WebElement> cells = list.get(i).findElements(By.cssSelector(" td"));
             isNameExist = cells.get(0).getText().contains(name);
             if (isNameExist)
-                cells.get(7).findElements(By.cssSelector(" button.btn.btn-danger")).get(action).click();
+                cells.get(7).findElement(By.cssSelector(" button.btn.btn-danger")).click();
+            i=i+1;
+        }
+    }
+
+    public static void clickButtonUpdate(List<WebElement> list, String name) {
+        boolean isNameExist = false;
+        int i = 0;
+        while (!isNameExist) {
+            List<WebElement> cells = list.get(i).findElements(By.cssSelector(" td"));
+            isNameExist = cells.get(0).getText().contains(name);
+            System.out.println(cells.get(0).getText());
+            if (isNameExist)
+                cells.get(7).findElement(By.cssSelector(" button.btn.btn-info")).click();
             i=i+1;
         }
     }
@@ -156,8 +169,9 @@ public class CommonEvents {
         boolean isNameExist = false;
         int i = 0;
         while (!isNameExist) {
-            List<WebElement> cells = list.get(i).findElements(By.tagName("td"));
+            List<WebElement> cells = list.get(i).findElements(By.cssSelector(" td"));
             isNameExist = cells.get(0).getText().contains(name);
+            System.out.println(cells.get(0).getText());
             i = i + 1;
         }
         return isNameExist;

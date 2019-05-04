@@ -11,13 +11,17 @@ import java.util.List;
 
 public class TableAccident extends BasePage {
 
-    @FindBy(css = ".table tbody:nth-child(2) tr:nth-child(1) > td")
+    @FindBy(css = ".table tbody:nth-child(2) tr")
     private List<WebElement> incidents;
-    private RegisterPopup registerPopup;
+
+
 
     public String getFirstRowTable(){
       return  CommonEvents.getTextContent( incidents.get(0));
     }
 
 
+    public boolean existOnList(String expected) {
+        return CommonEvents.isExist(incidents,expected);
+    }
 }

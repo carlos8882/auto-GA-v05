@@ -1,5 +1,6 @@
 package org.umssdiplo.automationv01.stepdefinitionproject;
 
+
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -16,9 +17,10 @@ public class AccidentUpdateDef {
         update.updateRegister(nameActual,nameUpdate);
     }
 
-    @Then("^The \"([^\"]*)\" Resgister is show in the table$")
-    public void theResgisterIsShowInTheTable(String nameUpdate) throws Throwable {
-        boolean actual=update.isExist(nameUpdate);
-        Assert.assertTrue(actual);
+
+    @Then("^The popup of the update should be shown$")
+    public void thePopupOfTheUpdateShouldBeShown() throws Throwable {
+        boolean actual=update.isExistUpdatePopup();
+        Assert.assertTrue(actual, "The popup is not present in the UI");
     }
 }

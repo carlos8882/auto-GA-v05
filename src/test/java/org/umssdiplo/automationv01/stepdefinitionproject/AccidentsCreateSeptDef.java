@@ -50,9 +50,23 @@ public class AccidentsCreateSeptDef {
     public void elRegisterAddedIsShownInTheTableInTheFirstPosition() throws Throwable {
         employeeData = new Employee();
         tableAccident= TablePage.getTableAccidentValue();
-        String actual=tableAccident.getFirstRowTable();
+
         String expected=employeeData.getFirstName()+" "+employeeData.getLastName();
-        Assert.assertEquals( actual,expected,"The employee is not exist in the List ");
+        boolean actual= tableAccident.existOnList(expected);
+        Assert.assertTrue( actual,"The employee is not exist in the List ");
     }
 
+    @And("^Select \"([^\"]*)\"$")
+    public void select(String name) throws Throwable {
+        registerIncident= RegisterIncidentPage.openRegisterPopup();
+        registerIncident.selectEmployee(name);
+
+    }
+
+    @Then("^The Prepopulate \"([^\"]*)\"$")
+    public void thePrepopulate(String expectedResult) throws Throwable {
+        registerIncident= RegisterIncidentPage.openRegisterPopup();
+        String actualResult =registerIncident.dataEmployeed();
+        Assert.assertEquals(actualResult,expectedResult);
+    }
 }

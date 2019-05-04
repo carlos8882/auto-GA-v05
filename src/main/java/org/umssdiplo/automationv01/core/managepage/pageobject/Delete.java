@@ -21,7 +21,7 @@ public class Delete extends BasePage {
 
 
     public void deleteRow(String name) {
-        CommonEvents.clickButtonList(list,name,0);
+        CommonEvents.clickButtonDeleted(list,name);
     }
 
     public boolean isExist(String name) {

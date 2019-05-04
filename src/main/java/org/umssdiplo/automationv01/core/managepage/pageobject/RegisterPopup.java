@@ -50,4 +50,27 @@ public class RegisterPopup extends BasePage {
        CommonEvents.clickButton(create);
    }
 
+    public void selectEmployee(String name){
+        CommonEvents.selectElemet(employee,name);
+    }
+
+
+    @FindBy(id = "employeeFirstNameId")
+    private WebElement firstname;
+
+    @FindBy(css = "#employeeLastNameId")
+    private WebElement lastname;
+
+    @FindBy(css = "#employeeCiId")
+    private WebElement ci;
+
+    @FindBy(css = "#employeeGenderId")
+    private WebElement gender;
+
+
+
+    public String dataEmployeed() {
+
+     return firstname.getAttribute("value")+" "+lastname.getAttribute("value")+" "+ci.getAttribute("value")+" "+gender.getAttribute("value");
+    }
 }
