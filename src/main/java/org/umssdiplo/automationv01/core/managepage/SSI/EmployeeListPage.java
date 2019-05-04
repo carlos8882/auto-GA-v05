@@ -20,6 +20,7 @@ public class EmployeeListPage extends BasePage {
 
     // Pop up Add Employee
     @FindBy(css = "input[name='firstName']")
+
     private WebElement firstName;
 
     @FindBy(css = "input[name='lastName']")
