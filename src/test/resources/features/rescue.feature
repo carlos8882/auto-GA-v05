@@ -37,4 +37,4 @@ Feature: registros
 
   Scenario: POSTMAN- DELETE using java-cucumber-restassure
     Given DELETE "/area/5" postman endpoint is configured
-#    Then the status code should be 200 after delete
+
